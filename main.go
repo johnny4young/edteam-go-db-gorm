@@ -53,4 +53,16 @@ func main() {
 		model.Product{Name: "Java's Course", Price: 55},
 	)
 
+	// Delete Soft
+	myProduct3 := model.Product{}
+	myProduct3.ID = 4
+
+	storage.DB().Delete(&myProduct3)
+
+	// Delete Permanent
+	myProduct4 := model.Product{}
+	myProduct4.ID = 4
+
+	storage.DB().Unscoped().Delete(&myProduct4)
+
 }
