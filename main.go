@@ -54,15 +54,26 @@ func main() {
 	)
 
 	// Delete Soft
-	myProduct3 := model.Product{}
-	myProduct3.ID = 4
+	// myProduct3 := model.Product{}
+	// myProduct3.ID = 4
 
-	storage.DB().Delete(&myProduct3)
+	// storage.DB().Delete(&myProduct3)
 
 	// Delete Permanent
-	myProduct4 := model.Product{}
-	myProduct4.ID = 4
+	// myProduct4 := model.Product{}
+	// myProduct4.ID = 4
 
-	storage.DB().Unscoped().Delete(&myProduct4)
+	// storage.DB().Unscoped().Delete(&myProduct4)
+
+	// Transactions
+	invoice := model.InvoiceHeader{
+		Client: "Johnny Young",
+		InvoiceItems: []model.InvoiceItem{
+			{ProductID: 1},
+			{ProductID: 2},
+		},
+	}
+
+	storage.DB().Create(&invoice)
 
 }
