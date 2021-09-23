@@ -46,4 +46,11 @@ func main() {
 	storage.DB().First(&myProduct, 1)
 	fmt.Println(myProduct)
 
+	//UPDATE
+	myProduct2 := model.Product{}
+	myProduct2.ID = 2
+	storage.DB().Model(&myProduct2).Updates(
+		model.Product{Name: "Java's Course", Price: 55},
+	)
+
 }
