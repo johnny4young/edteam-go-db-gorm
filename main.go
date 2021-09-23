@@ -33,10 +33,17 @@ func main() {
 	// storage.DB().Create(&product2)
 
 	// READ
+
+	//ALL
 	products := make([]model.Product, 0)
 	storage.DB().Find(&products)
 	for _, product := range products {
 		fmt.Printf("%d - %s\n", product.ID, product.Name)
 	}
+
+	//get one row
+	myProduct := model.Product{}
+	storage.DB().First(&myProduct, 1)
+	fmt.Println(myProduct)
 
 }
