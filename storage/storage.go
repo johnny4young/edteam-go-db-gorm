@@ -62,6 +62,6 @@ func newMySQLDB() {
 }
 
 // Pool return an instance unique of db
-func Pool() *gorm.DB {
+func DB() *gorm.DB {
 	return db
 }
